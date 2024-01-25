@@ -1,0 +1,105 @@
+.bg-video {
+    position: absolute;
+    z-index: -2;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+/* 
+Explicação: o position absolute ira deixar o contexto do video separado dos demais(para não interferir com os demais blocos) e os z-index negativo e pra garantir que ele sempre ficara
+mais profundo em relaçao a pagina
+Outro ponto importante são as medidas: vh quer dizer view heigth é quer dizer que ele ira sempre ocupar determinada porcetangem da altura visivel pelo navegador em determinado ponto
+ou seja 100vh, ele sempre ira ocupar 100 por cento da area visivel de altura disponivel. O vw(view width) funciona da mesma maneira
+*/
+
+.bg-video .video {
+    height: 100vh;
+
+}
+
+.bg-video::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 50%,rgba(0,0,0,1) 100%);
+
+}
+
+/*
+aqui cabe uma explicação. os pseudo-elementos são uma forma de selecionar/criar elementos por meio do css. Isso não foi explicado na trilha do bootcamp mas esta sendo usado nos pro
+jetos a exaustão, talvez seja um oversigth por parte deles. enfim o pseudo-elemento after é usado para criar/posicionar um elemento apos o ele selecionado pelo seletor( no caso acima o
+.bg-video. Se voce inspecionar o mesmo no navegador vai ver ele indicado por ::after(after depois, before -> antes
+
+nesse caso ele cria uma pelicula por cima do video( o video tem posição -2, então como o padrão do z-index(creio que é zero) vai deixar ele em cima do video). essa pelicula
+vai ter direção de 90graus(90deg) e vai começar no preto, depois preto com um pouco de transparencia e termina no preto normal ( atraves do canal alpha do rgba)
+
+z-index se refere ao eixo z que é o de profundidade
+*/
+
+.container {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    height: 100vh;
+}
+
+/* esse se refere ao container que ira ficar a area das cartas ( tem dois container um que tem o score e o video e outro que é a area de gameplay em si) 
+outra observação e que no html estão sendo colocada classes referentes ao framework rpgui que não irão aparecer na main (estão em outros arquivos css)
+outras observaçoes:
+rem -> multiplica levando em consideração o font-size padrão do navegador(geralmente 16px)*/
+
+.container__left {
+    width: 35%;
+    min-width: 300px;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.container__right {
+   width: 65%;
+}
+
+.score_box {
+    background-color: #fff;
+    padding: 30px;
+    width: 100%;
+}
+
+.frame {
+    border: 3px solid #000;
+    border-radius: 5px;
+}
+
+.card_details {
+    background-color: #fff;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 6rem;
+    width: 100%;
+
+}
+
+#card_name {
+    font-size: 0.8rem;
+}
+
+#card_type {
+    font-size: 1.0rem;
+}
+
+.card-box__container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
