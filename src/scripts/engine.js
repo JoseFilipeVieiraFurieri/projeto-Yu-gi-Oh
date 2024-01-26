@@ -301,11 +301,6 @@ async function drawCards(cardNumbers, handSide) {
 // para gerar um id aleatoria, uma para criar a imagem e por fim a função drawCards fica responsavel mesmo por por apendar as cartas no field
 
 
-const playBackAudio = () => {
-    const bgm = document.getElementById("bgm");
-    bgm.play();
-} 
-
 
 // função init
 
@@ -327,11 +322,16 @@ showHiddenCardFieldImages(false);
 drawCards(6, "player-cards");
 drawCards(6, "computer-cards");
 
-// playBackAudio();
+playBackAudio();
 
 
 };
 
+const playBackAudio = () => {
+    const bgm = document.getElementById("bgm");
+    bgm.play();
+} 
 
-playBackAudio();
+
+
 init();
