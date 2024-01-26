@@ -311,7 +311,6 @@ async function resetDuel() {
         state.view.cardSprites.avatar.src = "";
         state.actions.button.style.display = "none";
 
-        showHiddenCardFieldImages(false);
         
     
     
@@ -320,8 +319,13 @@ async function resetDuel() {
 
 function init() {
 
+  showHiddenCardFieldImages(false);
+
   drawCards(6, "player-cards");
   drawCards(6, "computer-cards");
+
+  const bgm = document.getElementById("bgm");
+  bgm.play();
 
 
 

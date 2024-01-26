@@ -13,6 +13,8 @@ Explicação: o position absolute ira deixar o contexto do video separado dos de
 mais profundo em relaçao a pagina
 Outro ponto importante são as medidas: vh quer dizer view heigth é quer dizer que ele ira sempre ocupar determinada porcetangem da altura visivel pelo navegador em determinado ponto
 ou seja 100vh, ele sempre ira ocupar 100 por cento da area visivel de altura disponivel. O vw(view width) funciona da mesma maneira
+
+O body cursor seta um cursor default -- tive que mover o cursor customizado para o reset.css estava dando conflito com o corpo da pagina no main
 */
 
 .bg-video .video {
@@ -160,9 +162,11 @@ rem -> multiplica levando em consideração o font-size padrão do navegador(ger
     justify-content: space-around;
 }
 
+
 .card-infield {
     height: 11.2rem;
     width: 8rem;
+    border: 1px solid #fff;
     border-radius: 8px;
 }
 

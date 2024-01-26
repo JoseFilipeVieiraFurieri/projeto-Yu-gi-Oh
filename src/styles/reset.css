@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,700;1,100;1,200&family=Press+Start+2P&display=swap');
 
 
+body {
+  cursor: url("../assets/cursor/yugicursor.png"), default;
+}
+
+button, a, img:hover, button:hover, a:hover {
+  cursor: url("../assets/cursor/yamiyugicursorGLOW.png"), auto;
+}
+
 * {
 
   box-sizing: border-box;
