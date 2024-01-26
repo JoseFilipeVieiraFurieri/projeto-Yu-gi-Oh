@@ -327,9 +327,11 @@ showHiddenCardFieldImages(false);
 drawCards(6, "player-cards");
 drawCards(6, "computer-cards");
 
-playBackAudio();
+// playBackAudio();
 
 
 };
 
+
+playBackAudio();
 init();
