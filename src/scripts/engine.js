@@ -305,7 +305,7 @@ async function drawCards(cardNumbers, handSide) {
 // função init
 
 
-async function resetDuel() {
+function resetDuel() {
         state.view.cardSprites.avatar.src = "";
         state.actions.button.style.display = "none";
 
