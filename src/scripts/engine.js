@@ -318,9 +318,6 @@ async function resetDuel() {
 }
 
 function init() {
-
-const bgm = document.getElementById("bgm");
-bgm.play();
     
 showHiddenCardFieldImages(false);
 
@@ -332,4 +329,6 @@ drawCards(6, "computer-cards");
 
 };
 
+const bgm = document.getElementById("bgm");
+bgm.play();
 init();
