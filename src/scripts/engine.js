@@ -170,6 +170,12 @@ async function setCardsField(cardId) {
 
     state.view.fieldCard.computer.src = cardData[computerCardId].img;
 
+    
+
+    await hiddenCardDetails();
+
+    await showHiddenCardFieldImages(true);
+
 
     let checkWin = await checkWinCondition(cardId, computerCardId);
 
@@ -177,11 +183,37 @@ async function setCardsField(cardId) {
     await drawButton(checkWin);
 }
 
+// refatorar pra os 3 ultimos states ( em uma função separada)
+
+async function hiddenCardDetails() {
+    state.view.cardSprites.name.innerText = "";
+
+    state.view.cardSprites.type.innerText = "";
+
+    state.view.cardSprites.avatar.src = "";
+}
+
+async function showHiddenCardFieldImages(value) {
+    if (value === true) {
+        state.view.fieldCard.player.style.display = "block";
+
+        state.view.fieldCard.computer.style.display = "block";
+    } else {
+        state.view.fieldCard.player.style.display = "none";
+        state.view.fieldCard.computer.style.display = "none";
+    }
+}
+
 
 
 // Essa função coloca as cartas clicadas no centro da tela. a logica e simples os states ja estão selecionados e as imagens ja estão no HTML( so não tem o src). Agora não entendi pq
 // ele setou esse display block ai não, por padrão os elementos ja vem com display block . Aqui tambem é setado a carta do CPU( logico que não a IA por traz e so o random mesmo).
 // Por fim tem a logica de duelo( regra do jokenpo)
+
+
+// as funçoes hiddenCardDestails são refatoramentos das que tem o intuido de modificar compartimentalizar as funçoes de exibir os elementos na tela. A showHiddenCardFieldImages(value)
+// recebe true na hora de clicar e na hora de resetar esconde
+// obs: esta sumindo a borda, ver isso depois
 
 
 async function checkWinCondition(cardId, computerCardId) {
@@ -278,16 +310,20 @@ async function drawCards(cardNumbers, handSide) {
 async function resetDuel() {
         state.view.cardSprites.avatar.src = "";
         state.actions.button.style.display = "none";
+
+        showHiddenCardFieldImages(false);
+        
     
-        state.view.fieldCard.player.style.display = "none";
-        state.view.fieldCard.computer.style.display = "none";
     
         init();
 }
 
 function init() {
+
   drawCards(6, "player-cards");
   drawCards(6, "computer-cards");
+
+
 
 };
 
