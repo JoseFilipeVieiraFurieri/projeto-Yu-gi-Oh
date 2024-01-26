@@ -334,4 +334,4 @@ const playBackAudio = () => {
 
 
 
-init();
+resetDuel();
